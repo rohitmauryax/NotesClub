@@ -8,7 +8,9 @@ const Body = () => {
   const handleChange = (e) => {
     setSearch(e.target.value);
     const Filresult = Data.filter((title) => {
-      return search && title && title.toLowerCase().includes(search);
+      return (
+        search && title && title.toLowerCase().includes(search.toLowerCase())
+      );
     });
     console.log(result);
     setResult(Filresult);
