@@ -1,7 +1,7 @@
 import React from "react";
 
 const Cards = ({ note }) => {
-  console.log(note);
+  // console.log(note);
   return (
     <>
       <div className="rounded-sm h-96 w-[350px] cursor-pointer shadow-slate-500 shadow-sm transition-all hover:shadow-lg">
