@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const Cards = ({ note }) => {
   // console.log(note);
   return (
@@ -64,7 +64,9 @@ const Cards = ({ note }) => {
             Preview
           </button>
           <button className="border-2 border-slate-100 p-2 bg-slate-900 text-white rounded-md">
-            Download
+            <Link to={note.documents__data__document_storage_url}>
+              Download
+            </Link>
           </button>
         </div>
       </div>

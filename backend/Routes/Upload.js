@@ -17,17 +17,17 @@ router.post("/", upload.single("avatar"), async (req, res) => {
   const data = JSON.parse(req.body.uploadUser);
   const { name, email, university, branch, subject } = data;
   const pdfName = req.file.filename;
-  cloudinary.uploader.upload(req.file.path, function (err, result) {
-    if (err) {
-      console.log(err);
-      return res.status(400).json({
-        message: "Error",
-      });
-    } else {
-      res.status(200).json({
+  cloudinary.uploader.upload(req.file.path, function (result, err) {
+    if (result) {
+      return res.status(200).json({
         success: true,
         message: "uploaded",
         data: result,
+      });
+    } else {
+      console.log(err);
+      res.status(400).json({
+        message: "Error",
       });
     }
   });
