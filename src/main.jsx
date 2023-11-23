@@ -8,8 +8,8 @@ import Footer from "./components/Front/Footer.jsx";
 import { Notes } from "./components/Pages/Notes.jsx";
 import { Contribute } from "./components/Pages/Contribute.jsx";
 import { Home } from "./components/Pages/Home.jsx";
-import About from "./components/Front/About.jsx";
-import Contact from "./components/Front/Contact.jsx";
+import About from "./components/Pages/About.jsx";
+import Contact from "./components/Pages/Contact.jsx";
 import { Auth0Provider } from "@auth0/auth0-react";
 
 const AppLayout = () => {

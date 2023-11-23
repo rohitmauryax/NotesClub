@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Header from "../Front/Header";
-import Cards from "./Cards";
+import Cards from "../Front/Cards";
 import Shimmer from "../Front/Shimmer";
 export const Notes = () => {
   const { name } = useParams();
@@ -32,7 +32,7 @@ export const Notes = () => {
     <div>
       <div className="flex justify-between px-24 mt-6">
         <button className="border-2 border-green-500 p-2 bg-green-500 text-white rounded-md w-40 shadow-md shadow-slate-600">
-          <Link to={"/Contribute"}> Contribute</Link>
+          <Link to="/Contribute"> Contribute</Link>
         </button>
         <form action="">
           <select

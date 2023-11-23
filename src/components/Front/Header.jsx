@@ -1,10 +1,15 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Header = () => {
   const { loginWithRedirect } = useAuth0();
   const { logout, isAuthenticated, user } = useAuth0();
+  const [searchField, setSearchField] = useState("");
+  const handleSearch = (e) => {
+    setSearchField(e.target.value);
+    console.log(searchField);
+  };
   return (
     <div className="header flex h-16  shadow-xl bg-[#343a40] text-white">
       <div className="logo my-4">
@@ -37,9 +42,11 @@ const Header = () => {
       </div>
       <div className="my-auto ml-32">
         <input
-          className="rounded-sm"
+          className="rounded-sm text-black"
           type="text"
           placeholder="Search Subject..."
+          value={searchField}
+          onChange={handleSearch}
         />
       </div>
       {isAuthenticated && (
