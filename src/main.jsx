@@ -11,6 +11,7 @@ import { Home } from "./components/Pages/Home.jsx";
 import About from "./components/Pages/About.jsx";
 import Contact from "./components/Pages/Contact.jsx";
 import { Auth0Provider } from "@auth0/auth0-react";
+import PdfViewer from "./components/Pages/PdfViewer.jsx";
 
 const AppLayout = () => {
   return (
@@ -46,6 +47,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/Contact",
         element: <Contact />,
+      },
+      {
+        path: "/PdfViewer/",
+        element: <PdfViewer />,
       },
     ],
   },

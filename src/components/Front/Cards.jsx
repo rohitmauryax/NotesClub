@@ -61,7 +61,7 @@ const Cards = ({ note }) => {
         </div>
         <div className="flex justify-between mt-6 px-2">
           <button className=" border-2 border-slate-100 p-2 bg-slate-900 text-white rounded-md">
-            Preview
+            <Link to={"/PdfViewer"}>Preview</Link>
           </button>
           <button className="border-2 border-slate-100 p-2 bg-slate-900 text-white rounded-md">
             <Link to={note.documents__data__document_storage_url}>
