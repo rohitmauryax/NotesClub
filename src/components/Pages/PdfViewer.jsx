@@ -4,7 +4,7 @@ import DocViewer, { DocViewerRenderers } from "@cyntler/react-doc-viewer";
 export default function PdfViewer() {
   const doc = [
     {
-      uri: "https://drive.google.com/uc?id=10WUgCD6ClqW_br8DJ5xZNZbAXcW82yOQ&export=media",
+      uri: "https://drive.google.com/file/d/1rVMITYUY_BI-YvL9pZYMKGcFkQ39vDCr/preview",
       fileType: "pdf",
       fileName: "new",
     },
