@@ -23,7 +23,9 @@ const Header = () => {
   return (
     <div className="header flex h-16  shadow-xl bg-[#343a40] text-white">
       <div className="logo my-4">
-        <h1 className="px-2 text-3xl font-semibold ">NotesClub</h1>
+        <Link to="/" className="px-2 text-3xl font-semibold ">
+          NotesClub
+        </Link>
       </div>
       <div className="options h-14 my-auto text-md font-normal  tracking-wide">
         <ul className="flex p-4 ">
@@ -50,29 +52,33 @@ const Header = () => {
           </li>
         </ul>
       </div>
-      <div className="my-auto ml-32">
+      <div className="my-3 w-48 ">
         <input
-          className="rounded-sm text-black"
+          className="h-10 w-48 px-2 rounded-sm text-black"
           type="text"
           placeholder="Search Subject..."
           value={searchField}
           onChange={handleSearch}
         />
         <div>
-          <ul>
-            {result.map((title, index) => {
-              return (
-                <li
-                  className="border-[1px] rounded-sm border-slate-800 text-left p-1 px-3 hover:cursor-pointer"
-                  key={index}
-                  onClick={() => {
-                    setTitle(title);
-                  }}
-                >
-                  <SearchResult url={title} />
-                </li>
-              );
-            })}
+          <ul className="w-auto max-h-28 overflow-y-scroll ">
+            {searchField.length === 0
+              ? null
+              : result.map((title, index) => {
+                  return (
+                    <li
+                      className="p-2 bg-white text-slate-950 bg hover:cursor-pointer border-[1px] rounded-sm border-slate-800"
+                      key={index}
+                      onClick={() => {
+                        // setTitle(title);
+                        setSearchField("");
+                        setResult([]);
+                      }}
+                    >
+                      <Link to={"/notes/" + title}>{title}</Link>
+                    </li>
+                  );
+                })}
           </ul>
         </div>
       </div>
