@@ -11,6 +11,9 @@ const noteSchema = new Schema({
     type: String,
     required: true,
   },
+  documents__data__category__document_category_name: {
+    type: String,
+  },
   tag: {
     type: String,
   },

@@ -1,7 +1,7 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const Cards = ({ note }) => {
-  console.log(note);
+  // console.log(note);
   return (
     <>
       <div className="rounded-sm h-96 w-[350px] cursor-pointer shadow-slate-500 shadow-sm transition-all hover:shadow-lg">
@@ -61,10 +61,12 @@ const Cards = ({ note }) => {
         </div>
         <div className="flex justify-between mt-6 px-2">
           <button className=" border-2 border-slate-100 p-2 bg-slate-900 text-white rounded-md">
-            Preview
+            <Link to={"/PdfViewer"}>Preview</Link>
           </button>
           <button className="border-2 border-slate-100 p-2 bg-slate-900 text-white rounded-md">
-            Download
+            <Link to={note.documents__data__document_storage_url}>
+              Download
+            </Link>
           </button>
         </div>
       </div>

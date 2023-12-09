@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Form, Link, json } from "react-router-dom";
 import Data from "../../assets/Data";
 import { createRef } from "react";
+import Swal from "sweetalert2";
 export const Contribute = () => {
   const fileInput = createRef();
   const [userData, setUserData] = useState({
@@ -24,7 +25,12 @@ export const Contribute = () => {
       });
       const result = await resposnse.json();
       if (resposnse.ok) {
-        alert("file uploaded");
+        Swal.fire({
+          title: "SUCCESS!",
+          text: "File Uploaded Successfully",
+          icon: "success",
+        });
+        // alert("file uploaded");
       } else {
         console.log("some error occur");
       }
@@ -64,9 +70,9 @@ export const Contribute = () => {
           className="rounded-md h-12 shadow-md shadow-slate-300"
         >
           <option selected>Select University</option>
-          <option value="ipu">ipu</option>
-          <option value="aktu">aktu</option>
-          <option value="igdtu">igdtu</option>
+          <option value="ipu">IPU</option>
+          <option value="aktu">AKTU</option>
+          <option value="igdtu">IGDTU</option>
         </select>
         <select
           name="branch"
@@ -74,10 +80,10 @@ export const Contribute = () => {
           className="rounded-md h-12 shadow-md shadow-slate-300"
         >
           <option selected>Select Branch</option>
-          <option value="cs">cs</option>
-          <option value="it">it</option>
-          <option value="ece">ece</option>
-          <option value="eee">eee</option>
+          <option value="cs">CS</option>
+          <option value="it">IT</option>
+          <option value="ece">ECE</option>
+          <option value="eee">EEE</option>
         </select>
         <select
           name="subject"
