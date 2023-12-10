@@ -8,6 +8,7 @@ export const Notes = () => {
   const [filter, setFilter] = useState("all");
   const [notesData, setNotesData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [page, setPage] = useState(6);
   const loadData = async () => {
     let response = await fetch(
       `http://localhost:5000/api/query?search=${name}&filter=${filter}`,
@@ -22,13 +23,19 @@ export const Notes = () => {
     setNotesData(response);
     setIsLoading(false);
   };
+  const handleClick = () => {
+    setPage(page + 3);
+  };
+
   useEffect(() => {
     setIsLoading(true);
     loadData();
+    setPage(6);
   }, [filter, name]);
   const handleChange = (e) => {
     setFilter(e.target.value);
   };
+  console.log(page, notesData.length);
   return isLoading ? (
     <Shimmer />
   ) : notesData.length === 0 ? (
@@ -72,10 +79,22 @@ export const Notes = () => {
         </select>
       </div>
       <div className=" flex flex-wrap justify-evenly gap-5 content-evenly my-10 ">
-        {notesData.map((note) => {
+        {notesData.slice(0, page).map((note) => {
           return <Cards key={note.documents__data__document_id} note={note} />;
         })}
       </div>
+      {page < notesData.length ? (
+        <div className="flex justify-center">
+          <button
+            onClick={handleClick}
+            className="px-5 py-3 text-base font-medium text-center text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            Load More
+          </button>
+        </div>
+      ) : (
+        console.log("No more data")
+      )}
     </div>
   );
 };
