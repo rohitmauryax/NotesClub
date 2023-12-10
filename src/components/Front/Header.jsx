@@ -61,7 +61,7 @@ const Header = () => {
           onChange={handleSearch}
         />
         <div>
-          <ul className="w-auto max-h-28 overflow-y-scroll ">
+          <ul className="w-auto max-h-28 overflow-y-scroll z-10 relative ">
             {searchField.length === 0
               ? null
               : result.map((title, index) => {
