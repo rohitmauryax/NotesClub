@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import Header from "../Front/Header";
 import Cards from "./Cards";
 import Shimmer from "../Front/Shimmer";
+import Video from "./Video";
 export const Notes = () => {
   const { name } = useParams();
   const [notesData, setNotesData] = useState([]);
@@ -30,6 +31,9 @@ export const Notes = () => {
       <div className="flex justify-between px-24 mt-6">
         <button className="border-2 border-green-500 p-2 bg-green-500 text-white rounded-md w-40 shadow-md shadow-slate-600">
           Contribute
+        </button>
+        <button className="border-2 border-blue-600 p-2 bg-blue-600 text-white rounded-md w-40 shadow-md shadow-slate-600">
+          <Link to={"/video"}>Video Tutorials</Link>
         </button>
         <form action="">
           <select

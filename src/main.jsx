@@ -11,6 +11,8 @@ import { Home } from "./components/Pages/Home.jsx";
 import About from "./components/Front/About.jsx";
 import Contact from "./components/Front/Contact.jsx";
 import { Auth0Provider } from "@auth0/auth0-react";
+import Video from "./components/Pages/Video.jsx";
+import VideoPlayer from "./components/Pages/VideoPlayer.jsx";
 
 const AppLayout = () => {
   return (
@@ -46,6 +48,14 @@ const appRouter = createBrowserRouter([
       {
         path: "/Contact",
         element: <Contact />,
+      },
+      {
+        path: "/video",
+        element: <Video />,
+      },
+      {
+        path: "/videoplayer",
+        element: <VideoPlayer />,
       },
     ],
   },
