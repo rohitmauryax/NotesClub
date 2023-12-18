@@ -33,7 +33,7 @@ export const Notes = () => {
           Contribute
         </button>
         <button className="border-2 border-blue-600 p-2 bg-blue-600 text-white rounded-md w-40 shadow-md shadow-slate-600">
-          <Link to={"/video"}>Video Tutorials</Link>
+          <Link to={"/playlist"}>Video Tutorials</Link>
         </button>
         <form action="">
           <select

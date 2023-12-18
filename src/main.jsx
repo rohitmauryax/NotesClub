@@ -13,6 +13,7 @@ import Contact from "./components/Front/Contact.jsx";
 import { Auth0Provider } from "@auth0/auth0-react";
 import Video from "./components/Pages/Video.jsx";
 import VideoPlayer from "./components/Pages/VideoPlayer.jsx";
+import Playlist from "./components/Pages/Playlist.jsx";
 
 const AppLayout = () => {
   return (
@@ -56,6 +57,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/videoplayer",
         element: <VideoPlayer />,
+      },
+      {
+        path: "/playlist",
+        element: <Playlist />,
       },
     ],
   },

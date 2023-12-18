@@ -8,7 +8,7 @@ const VideoPlayer = () => {
   console.log(location);
   return (
     <>
-      <div className="w-[1300px] h-[740px] bg-indigo-100-50 shadow-2xl p-10 mx-auto mt-10 rounded-lg">
+      <div className="w-[1300px] h-[750px] bg-indigo-100-50 shadow-2xl p-10 mx-auto mt-10 rounded-lg">
         <iframe
           width="1200px"
           height="600px"
@@ -19,9 +19,9 @@ const VideoPlayer = () => {
           allowfullscreen
           className="mx-auto rounded-md"
         ></iframe>
-        <h1>{title}</h1>
-        <p>{description}</p>
-        <p>{videoOwnerChannelTitle}</p>
+        <h1 className="font-bold font-rob text-lg p-2">{title}</h1>
+        <p className="font-rob font-light p-1">{description}</p>
+        <p className="font-rob font-light p-1">{videoOwnerChannelTitle}</p>
       </div>
     </>
   );
