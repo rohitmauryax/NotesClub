@@ -52,6 +52,8 @@ const Header = () => {
           </li>
         </ul>
       </div>
+
+    <div className="flex w-[456px] justify-around">
       <div className="my-3 w-48 ">
         <input
           className="h-10 w-48 px-2 rounded-sm text-black"
@@ -59,22 +61,22 @@ const Header = () => {
           placeholder="Search Subject..."
           value={searchField}
           onChange={handleSearch}
-        />
+          />
         <div>
           <ul className="w-auto max-h-28 overflow-y-scroll z-10 relative ">
             {searchField.length === 0
               ? null
               : result.map((title, index) => {
-                  return (
-                    <li
-                      className="p-2 bg-white text-slate-950 bg hover:cursor-pointer border-[1px] rounded-sm border-slate-800"
-                      key={index}
-                      onClick={() => {
-                        // setTitle(title);
-                        setSearchField("");
-                        setResult([]);
-                      }}
-                    >
+                return (
+                  <li
+                  className="p-2 bg-white text-slate-950 bg hover:cursor-pointer border-[1px] rounded-sm border-slate-800"
+                  key={index}
+                  onClick={() => {
+                    // setTitle(title);
+                    setSearchField("");
+                    setResult([]);
+                  }}
+                  >
                       <Link to={"/notes/" + title}>{title}</Link>
                     </li>
                   );
@@ -89,7 +91,7 @@ const Header = () => {
             className="rounded-full h-9 w-9 my-auto"
             src={user.picture}
             alt=""
-          />
+            />
         </div>
       )}
       {isAuthenticated ? (
@@ -98,7 +100,7 @@ const Header = () => {
             onClick={() =>
               logout({ logoutParams: { returnTo: window.location.origin } })
             }
-          >
+            >
             Log Out
           </button>
         </div>
@@ -108,6 +110,7 @@ const Header = () => {
         </div>
       )}
     </div>
+  </div>
   );
 };
 
