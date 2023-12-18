@@ -4,11 +4,21 @@ const notes = require("../modal/Notes");
 const video = require("../modal/video");
 
 router.get("/query", async (req, res) => {
-  const { search } = req.query;
-  if (search) {
-    // const filter = { tag: search };
-    // res.send(filter);
-    const data = await notes.find({ tag: search }).exec();
+  const { search, filter } = req.query;
+  if (search && filter == "all") {
+    const data = await notes
+      .find({
+        tag: search,
+      })
+      .exec();
+    res.send(data);
+  } else {
+    const data = await notes
+      .find({
+        tag: search,
+        documents__data__category__document_category_name: filter,
+      })
+      .exec();
     res.send(data);
   }
 });
