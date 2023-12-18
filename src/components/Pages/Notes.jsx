@@ -66,23 +66,9 @@ export const Notes = () => {
         <button className="border-2 border-green-500 p-2 bg-green-500 text-white rounded-md w-40 shadow-md shadow-slate-600">
           <Link to="/Contribute"> Contribute</Link>
         </button>
-<<<<<<< HEAD
         <button className="border-2 border-blue-600 p-2 bg-blue-600 text-white rounded-md w-40 shadow-md shadow-slate-600">
           <Link to={"/playlist"}>Video Tutorials</Link>
         </button>
-        <form action="">
-          <select
-            name="list"
-            className=" shadow-md shadow-slate-400 p-2 w-44 rounded-md"
-          >
-            <option value="ALL">All</option>
-            <option value="Ebooks">Ebooks</option>
-            <option value="Notes">Notes</option>
-            <option value="Practicals">Practicals</option>
-            <option value="PYQ's">PYQ's</option>
-          </select>
-        </form>
-=======
         <select
           name="list"
           className=" shadow-md shadow-slate-400 p-2 w-44 rounded-md"
@@ -95,7 +81,6 @@ export const Notes = () => {
           <option value="Practical Files">Practicals</option>
           <option value="Question Papers">PYQ's</option>
         </select>
->>>>>>> dbbadb3182e49adc02b4bd4ef61c51a111432c81
       </div>
       <div className=" flex flex-wrap justify-evenly gap-5 content-evenly my-10 ">
         {notesData.slice(0, page).map((note) => {

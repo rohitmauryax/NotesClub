@@ -11,13 +11,10 @@ import { Home } from "./components/Pages/Home.jsx";
 import About from "./components/Pages/About.jsx";
 import Contact from "./components/Pages/Contact.jsx";
 import { Auth0Provider } from "@auth0/auth0-react";
-<<<<<<< HEAD
 import Video from "./components/Pages/Video.jsx";
 import VideoPlayer from "./components/Pages/VideoPlayer.jsx";
 import Playlist from "./components/Pages/Playlist.jsx";
-=======
 import PdfViewer from "./components/Pages/PdfViewer.jsx";
->>>>>>> dbbadb3182e49adc02b4bd4ef61c51a111432c81
 
 const AppLayout = () => {
   return (
@@ -55,7 +52,6 @@ const appRouter = createBrowserRouter([
         element: <Contact />,
       },
       {
-<<<<<<< HEAD
         path: "/video",
         element: <Video />,
       },
@@ -66,10 +62,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/playlist",
         element: <Playlist />,
-=======
+      },
+      {
         path: "/PdfViewer/",
         element: <PdfViewer />,
->>>>>>> dbbadb3182e49adc02b4bd4ef61c51a111432c81
       },
     ],
   },
