@@ -32,7 +32,14 @@ export const Notes = () => {
     setIsLoading(true);
     loadData();
     setPage(6);
-  }, [filter, name]);
+    setFilter("all");
+  }, [name]);
+
+  useEffect(() => {
+    setIsLoading(true);
+    loadData();
+    setPage(6);
+  }, [filter]);
   const handleChange = (e) => {
     setFilter(e.target.value);
   };
