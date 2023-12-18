@@ -10,7 +10,7 @@ export const SearchResultList = ({ result, search }) => {
         {result.map((title, index) => {
           return (
             <li
-              className="border-[1px] rounded-sm border-slate-800 text-left p-1 px-3 hover:cursor-pointer"
+              className="border-[1px] rounded-sm border-slate-800 text-left p-1 px-3 hover:cursor-pointer hover:bg-[#eaeaea]"
               key={index}
               onClick={() => {
                 setTitle(title);

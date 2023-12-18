@@ -32,7 +32,7 @@ Currently, two official plugins are available:
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://drive.google.com/file/d/1vmQpGw0XgeeUb_GA5Ak_MTaJgPF0Ab7Z/view?usp=drive_link)
 
 
 ## Features
