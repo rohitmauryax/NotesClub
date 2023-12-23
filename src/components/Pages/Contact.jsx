@@ -1,25 +1,67 @@
 import React, { useState } from "react";
-
+import Swal from "sweetalert2";
 const Contact = () => {
-  const [formData, setFormData] = useState({
+  const initiaFormData = {
     name: "",
     email: "",
     message: "",
-  });
+  };
+  const [formData, setFormData] = useState(initiaFormData);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log("Form submitted:", formData);
-  // };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log("Form submitted:", formData);
+    const formSpreeEndpoint = "https://formspree.io/f/xoqgayoj";
+    try {
+      const response = await fetch(formSpreeEndpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        Swal.fire({
+          icon: "success",
+          title: "Thank you for contacting us!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        setFormData(initiaFormData);
+        console.log("Form submitted successfully");
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Error submitting form",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        // console.error("Form submission failed");
+      }
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Error submitting form",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      console.error("Error submitting form:", error);
+    }
+  };
 
   return (
     <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-md shadow-md">
       <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
-      <form action="https://formspree.io/f/xoqgayoj" method="POST">
+      <form
+        action="https://formspree.io/f/xoqgayoj"
+        method="POST"
+        onSubmit={handleSubmit}
+      >
         <div className="mb-4">
           <label
             htmlFor="name"
