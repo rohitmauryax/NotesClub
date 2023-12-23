@@ -42,12 +42,12 @@ const Header = () => {
             <li className="mx-6 py-1 transition-colors hover:text-[#f8b40e] hover:cursor-pointer hover:bg-[#161b21] rounded-md">
               <Link to={"/contribute"}>Uploads</Link>
             </li>
-            <li className="mx-6 py-1 transition-colors hover:text-[#f8b40e] hover:cursor-pointer hover:bg-[#161b21] rounded-md">
+            {/* <li className="mx-6 py-1 transition-colors hover:text-[#f8b40e] hover:cursor-pointer hover:bg-[#161b21] rounded-md">
               Favourites
             </li>
             <li className="mx-6 py-1 transition-colors hover:text-[#f8b40e] hover:cursor-pointer hover:bg-[#161b21] rounded-md">
               Top Contributors
-            </li>
+            </li> */}
             <li className="mx-6 py-1 transition-colors hover:text-[#f8b40e] hover:cursor-pointer hover:bg-[#161b21] rounded-md">
               <Link to={"/contact"}>Contact Us</Link>
             </li>
