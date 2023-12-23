@@ -15,6 +15,7 @@ import Video from "./components/Pages/Video.jsx";
 import VideoPlayer from "./components/Pages/VideoPlayer.jsx";
 import Playlist from "./components/Pages/Playlist.jsx";
 import PdfViewer from "./components/Pages/PdfViewer.jsx";
+import { Dasboard } from "./components/Pages/Dasboard.jsx";
 
 const AppLayout = () => {
   return (
@@ -38,6 +39,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/notes/:name",
         element: <Notes />,
+      },
+      {
+        path: "/dashboard",
+        element: <Dasboard />,
       },
       {
         path: "/contribute",
@@ -74,8 +79,8 @@ const appRouter = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Auth0Provider
-    domain="dev-0zl2yx0frsm3mmws.us.auth0.com"
-    clientId="lGjaeq4q0bRjkoqmfjmqxU2pEUd8XnX3"
+    domain="dev-3l8dohgx7o1rw8wz.us.auth0.com"
+    clientId="QbsglMGV8xRj4fphIpeTsUyOhFMXjJBd"
     authorizationParams={{
       redirect_uri: window.location.origin,
     }}

@@ -14,10 +14,10 @@ const Playlist = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="flex m-4 justify-between rounded-sm h-[290px] w-[290px] cursor-pointer shadow-slate-500 shadow-sm transition-all hover:shadow-lg">
+      <div className="flex m-4 justify-between rounded-sm h-[290px] w-[290px] cursor-pointer shadow-slate-500 shadow-sm transition-all hover:shadow-lg hover:scale-110">
         <Link to={"/video"}>
           <img
-            className="w-72 h-72 mx-auto my-auto rounded-sm"
+            className="w-72 h-72 mx-auto my-auto rounded-sm "
             src={playlist.items["0"].snippet.thumbnails.high.url}
             alt=""
           />

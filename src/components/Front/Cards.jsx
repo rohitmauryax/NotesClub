@@ -4,7 +4,7 @@ const Cards = ({ note }) => {
   // console.log(note);
   return (
     <>
-      <div className="rounded-sm h-96 w-[350px] cursor-pointer shadow-slate-500 shadow-sm transition-all hover:shadow-lg">
+      <div className="rounded-sm h-96 w-[350px] cursor-pointer shadow-slate-500 shadow-sm transition-all hover:shadow-lg ">
         <header>
           <h1 className="font-bold text-lg mx-2 p-1">
             {note.documents__data__category__document_category_name}
@@ -60,10 +60,10 @@ const Cards = ({ note }) => {
           </p>
         </div>
         <div className="flex justify-between mt-6 px-2">
-          <button className=" border-2 border-slate-100 p-2 bg-slate-900 text-white rounded-md">
+          <button className=" border-2 border-slate-100 p-2 bg-slate-900 text-white rounded-md hover:scale-110">
             <Link to={"/PdfViewer"}>Preview</Link>
           </button>
-          <button className="border-2 border-slate-100 p-2 bg-slate-900 text-white rounded-md">
+          <button className="border-2 border-slate-100 p-2 bg-slate-900 text-white rounded-md hover:scale-110">
             <Link to={note.documents__data__document_storage_url}>
               Download
             </Link>
