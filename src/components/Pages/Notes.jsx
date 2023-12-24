@@ -69,7 +69,7 @@ export const Notes = () => {
     </div>
   ) : (
     <div>
-      <div className="flex justify-between px-24 mt-6">
+      <div className="flex justify-between px-24 mt-16">
         <button className="border-2 border-green-500 p-2 bg-green-500 text-white rounded-md w-40 shadow-md shadow-slate-600">
           <Link to="/Contribute"> Contribute</Link>
         </button>

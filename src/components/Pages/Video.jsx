@@ -16,7 +16,7 @@ const Video = () => {
     <Shimmer />
   ) : (
     <div>
-      <div className="flex justify-around content-evenly gap-2 flex-wrap my-4 ">
+      <div className="flex justify-around content-evenly gap-4 flex-wrap mt-20 ">
         {videoList.slice(0, item).map((video, index) => {
           return <VideoCards key={index} video={video} serial={index} />;
         })}
