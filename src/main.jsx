@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
@@ -18,12 +18,28 @@ import PdfViewer from "./components/Pages/PdfViewer.jsx";
 import { Dasboard } from "./components/Pages/Dasboard.jsx";
 
 const AppLayout = () => {
+  const [dark, Setdark] = useState(false);
   return (
-    <>
+    <div className={dark && "dark: bg-black text-white transition-colors"}>
       <Header />
-      <Outlet />
+      <Outlet context={[dark]} />
+      <button
+        className={
+          dark
+            ? `fixed z-20 bottom-16 right-10 w-10 h-10 rounded-full bg-white text-black p-1 `
+            : "fixed z-20 bottom-16 right-10 w-10 h-10 rounded-full bg-black text-white p-1 "
+        }
+        onClick={() => Setdark(!dark)}
+      >
+        {/* {dark ? "wte" : "drk"} */}
+        {dark ? (
+          <i class="fa-solid fa-sun"></i>
+        ) : (
+          <i class="fa-solid fa-moon"></i>
+        )}
+      </button>
       <Footer />
-    </>
+    </div>
   );
 };
 
