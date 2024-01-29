@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 const Cards = ({ note, color, nightMode }) => {
   console.log(color);
+  // test
   return (
     <>
       <div
