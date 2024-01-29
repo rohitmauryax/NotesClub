@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useOutletContext, useParams } from "react-router-dom";
 import Header from "../Front/Header";
 import Cards from "../Front/Cards";
 import Shimmer from "../Front/Shimmer";
 import Video from "./Video";
+
+const colorCode = ["#e9e481", "#eeaaaa", "#6cb5df"];
+
 export const Notes = () => {
   const { name } = useParams();
+  const nightMode = useOutletContext();
   const [filter, setFilter] = useState("all");
   const [notesData, setNotesData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -44,6 +48,7 @@ export const Notes = () => {
     setFilter(e.target.value);
   };
   console.log(page, notesData.length);
+  console.log(nightMode[0]);
   return isLoading ? (
     <Shimmer />
   ) : notesData.length === 0 ? (
@@ -90,8 +95,15 @@ export const Notes = () => {
         </select>
       </div>
       <div className=" flex flex-wrap justify-evenly gap-5 content-evenly my-10 ">
-        {notesData.slice(0, page).map((note) => {
-          return <Cards key={note.documents__data__document_id} note={note} />;
+        {notesData.slice(0, page).map((note, index) => {
+          return (
+            <Cards
+              key={note.documents__data__document_id}
+              note={note}
+              color={colorCode[index % colorCode.length]}
+              nightMode={nightMode[0]}
+            />
+          );
         })}
       </div>
       {page < notesData.length ? (

@@ -20,7 +20,12 @@ import { Dasboard } from "./components/Pages/Dasboard.jsx";
 const AppLayout = () => {
   const [dark, Setdark] = useState(false);
   return (
-    <div className={dark && "dark: bg-black text-white transition-colors"}>
+    <div
+      className={
+        dark &&
+        "dark: transition-colors duration-700 ease-in-out bg-black text-white "
+      }
+    >
       <Header />
       <Outlet context={[dark]} />
       <button
