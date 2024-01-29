@@ -53,13 +53,13 @@ export const Notes = () => {
     <Shimmer />
   ) : notesData.length === 0 ? (
     <div>
-      <div className="flex justify-between px-24 mt-6">
+      <div className="flex justify-between px-24 mt-6 text-black">
         <button className="border-2 border-green-500 p-2 bg-green-500 text-white rounded-md w-40 shadow-md shadow-slate-600">
           <Link to="/Contribute"> Contribute</Link>
         </button>
         <select
           name="list"
-          className=" shadow-md shadow-slate-400 p-2 w-44 rounded-md"
+          className=" shadow-md shadow-slate-400 p-2 w-44 rounded-md text-black"
           onChange={handleChange}
           value={filter}
         >
@@ -83,7 +83,7 @@ export const Notes = () => {
         </button>
         <select
           name="list"
-          className=" shadow-md shadow-slate-400 p-2 w-44 rounded-md"
+          className=" shadow-md shadow-slate-400 p-2 w-44 rounded-md text-black"
           onChange={handleChange}
           defaultValue={filter}
         >
