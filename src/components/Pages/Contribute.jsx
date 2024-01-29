@@ -47,7 +47,7 @@ export const Contribute = () => {
         UPLOAD FILES
       </h1>
       <form
-        className="flex flex-col space-y-4 h-3/5 w-2/4 mx-auto"
+        className="flex flex-col space-y-4 h-3/5 w-2/4 mx-auto text-black"
         onSubmit={handleSubmit}
       >
         <input
