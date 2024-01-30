@@ -4,9 +4,7 @@ import Header from "../Front/Header";
 import Cards from "../Front/Cards";
 import Shimmer from "../Front/Shimmer";
 import Video from "./Video";
-
-const colorCode = ["#e9e481", "#eeaaaa", "#6cb5df"];
-
+import ColorCode from "../../assets/ColorCode";
 export const Notes = () => {
   const { name } = useParams();
   const nightMode = useOutletContext();
@@ -100,7 +98,7 @@ export const Notes = () => {
             <Cards
               key={note.documents__data__document_id}
               note={note}
-              color={colorCode[index % colorCode.length]}
+              color={ColorCode[index % ColorCode.length]}
               nightMode={nightMode[0]}
             />
           );
@@ -121,3 +119,5 @@ export const Notes = () => {
     </div>
   );
 };
+
+//

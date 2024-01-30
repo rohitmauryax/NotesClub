@@ -2,11 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 const Cards = ({ note, color, nightMode }) => {
   console.log(color);
+
   // test
   return (
     <>
       <div
-        className={`rounded-3xl h-max w-[350px] cursor-pointer bg-[${color}] shadow-slate-500 shadow-sm transition-all hover:shadow-lg p-8`}
+        style={{ backgroundColor: `${color}` }}
+        className={`rounded-3xl h-max w-[350px] cursor-pointer shadow-slate-500 shadow-sm transition-all hover:shadow-lg p-8`}
       >
         <header>
           <h1 className="font-bold text-lg mx-2 p-1 text-purple-900">
