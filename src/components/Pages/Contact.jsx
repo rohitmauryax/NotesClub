@@ -14,7 +14,7 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+   
     const formSpreeEndpoint = "https://formspree.io/f/xoqgayoj";
     try {
       const response = await fetch(formSpreeEndpoint, {

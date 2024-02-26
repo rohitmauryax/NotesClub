@@ -5,7 +5,7 @@ const VideoPlayer = () => {
   const location = useLocation();
   const { title, description, videoOwnerChannelTitle } = location.state.snippet;
   const { videoId } = location.state.contentDetails;
-  console.log(location);
+ 
   return (
     <>
       <div className="w-[1300px] h-[750px] bg-indigo-100-50 shadow-2xl p-10 mx-auto mt-10 rounded-lg">

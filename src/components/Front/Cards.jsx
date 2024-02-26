@@ -1,15 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
-const Cards = ({ note, color, nightMode }) => {
-  console.log(color);
+const Cards = ({ note, nightMode }) => {
   // test
   return (
     <>
       <div
-        className={`rounded-3xl h-max w-[350px] cursor-pointer bg-[${color}] shadow-slate-500 shadow-sm transition-all hover:shadow-lg p-8`}
+        className={
+          !nightMode
+            ? "rounded-3xl h-max w-[350px] cursor-pointer shadow-slate-500 shadow-sm transition-all hover:shadow-lg p-8"
+            : "bg-[#3c4043] rounded-3xl h-max w-[350px] cursor-pointer shadow-slate-500 shadow-sm transition-all hover:shadow-lg p-8"
+        }
       >
         <header>
-          <h1 className="font-bold text-lg mx-2 p-1 text-purple-900">
+          <h1 className="font-bold text-lg mx-2 p-1">
             {note.documents__data__category__document_category_name}
           </h1>
           <hr />
@@ -65,22 +68,10 @@ const Cards = ({ note, color, nightMode }) => {
           </p>
         </div>
         <div className="flex justify-between mt-6 px-2">
-          <button
-            className={
-              nightMode
-                ? " border-2 border-green-400 p-2 bg-black text-white transition-colors ease-in duration-500 rounded-md hover:bg-green-500 hover:border-white hover:text-white"
-                : " border-2 border-green-400 p-2 bg-white text-black transition-colors ease-in duration-500 rounded-md hover:bg-green-500 hover:border-white hover:text-black"
-            }
-          >
+          <button className="p-2 bg-blue-500 text-white rounded-md">
             <Link to={"/PdfViewer"}>Preview</Link>
           </button>
-          <button
-            className={
-              nightMode
-                ? " border-2 border-green-400 p-2 bg-black text-white transition-colors ease-in duration-500 rounded-md hover:bg-green-500 hover:border-white hover:text-white"
-                : " border-2 border-green-400 p-2 bg-white text-black transition-colors ease-in duration-500 rounded-md hover:bg-green-500 hover:border-white hover:text-black"
-            }
-          >
+          <button className="p-2 bg-green-500 text-white rounded-md">
             <Link to={note.documents__data__document_storage_url}>
               Download
             </Link>

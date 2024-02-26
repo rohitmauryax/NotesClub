@@ -5,8 +5,6 @@ import Cards from "../Front/Cards";
 import Shimmer from "../Front/Shimmer";
 import Video from "./Video";
 
-const colorCode = ["#e9e481", "#eeaaaa", "#6cb5df"];
-
 export const Notes = () => {
   const { name } = useParams();
   const nightMode = useOutletContext();
@@ -14,6 +12,7 @@ export const Notes = () => {
   const [notesData, setNotesData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(6);
+  const [playlistId, setPlaylistID] = useState("");
   const loadData = async () => {
     let response = await fetch(
       `http://localhost:5000/api/query?search=${name}&filter=${filter}`,
@@ -28,6 +27,19 @@ export const Notes = () => {
     setNotesData(response);
     setIsLoading(false);
   };
+  const loadPlaylistData = async () => {
+    let response = await fetch(
+      `http://localhost:5000/api/playlist/query?tag=${name}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    response = await response.json();
+    setPlaylistID(response[0]?.api);
+  };
   const handleClick = () => {
     setPage(page + 3);
   };
@@ -37,6 +49,7 @@ export const Notes = () => {
     loadData();
     setPage(6);
     setFilter("all");
+    loadPlaylistData();
   }, [name]);
 
   useEffect(() => {
@@ -47,8 +60,7 @@ export const Notes = () => {
   const handleChange = (e) => {
     setFilter(e.target.value);
   };
-  console.log(page, notesData.length);
-  console.log(nightMode[0]);
+ 
   return isLoading ? (
     <Shimmer />
   ) : notesData.length === 0 ? (
@@ -56,6 +68,9 @@ export const Notes = () => {
       <div className="flex justify-between px-24 mt-6 text-black">
         <button className="border-2 border-green-500 p-2 bg-green-500 text-white rounded-md w-40 shadow-md shadow-slate-600">
           <Link to="/Contribute"> Contribute</Link>
+        </button>
+        <button className="border-2 border-blue-600 p-2 bg-blue-600 text-white rounded-md w-40 shadow-md shadow-slate-600">
+          <Link to={"/playlist/" + playlistId}>Video Tutorials</Link>
         </button>
         <select
           name="list"
@@ -79,7 +94,7 @@ export const Notes = () => {
           <Link to="/Contribute"> Contribute</Link>
         </button>
         <button className="border-2 border-blue-600 p-2 bg-blue-600 text-white rounded-md w-40 shadow-md shadow-slate-600">
-          <Link to={"/playlist"}>Video Tutorials</Link>
+          <Link to={"/playlist/" + playlistId}>Video Tutorials</Link>
         </button>
         <select
           name="list"
@@ -100,7 +115,6 @@ export const Notes = () => {
             <Cards
               key={note.documents__data__document_id}
               note={note}
-              color={colorCode[index % colorCode.length]}
               nightMode={nightMode[0]}
             />
           );
@@ -116,7 +130,8 @@ export const Notes = () => {
           </button>
         </div>
       ) : (
-        console.log("No more data")
+        // console.log("No more data")
+        null
       )}
     </div>
   );

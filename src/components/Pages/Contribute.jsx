@@ -17,7 +17,7 @@ export const Contribute = () => {
     const formData = new FormData();
     formData.set("avatar", fileInput.current.files[0]);
     formData.set("uploadUser", JSON.stringify(userData));
-    console.log(formData);
+    
     try {
       const resposnse = await fetch("http://localhost:5000/api/upload", {
         method: "POST",

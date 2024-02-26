@@ -23,7 +23,7 @@ const AppLayout = () => {
     <div
       className={
         dark &&
-        "dark: transition-colors duration-700 ease-in-out bg-black text-white "
+        "dark: transition-colors duration-700 ease-in-out bg-[#202124] text-white "
       }
     >
       <Header />
@@ -78,7 +78,7 @@ const appRouter = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path: "/video",
+        path: "/video/:id",
         element: <Video />,
       },
       {
@@ -86,7 +86,7 @@ const appRouter = createBrowserRouter([
         element: <VideoPlayer />,
       },
       {
-        path: "/playlist",
+        path: "/playlist/:id",
         element: <Playlist />,
       },
       {

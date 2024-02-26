@@ -1,11 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 const videoSchema = new Schema({
-  url: {
-    type: String,
-    require: true,
-  },
-  description: {
+  api: {
     type: String,
     require: true,
   },
