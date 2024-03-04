@@ -15,7 +15,7 @@ export const Notes = () => {
   const [playlistId, setPlaylistID] = useState("");
   const loadData = async () => {
     let response = await fetch(
-      `http://localhost:5000/api/query?search=${name}&filter=${filter}`,
+      `https://notes-club.vercel.app/api/query?search=${name}&filter=${filter}`,
       {
         method: "GET",
         headers: {
@@ -29,7 +29,7 @@ export const Notes = () => {
   };
   const loadPlaylistData = async () => {
     let response = await fetch(
-      `http://localhost:5000/api/playlist/query?tag=${name}`,
+      `https://notes-club.vercel.app/api/playlist/query?tag=${name}`,
       {
         method: "GET",
         headers: {
@@ -60,7 +60,7 @@ export const Notes = () => {
   const handleChange = (e) => {
     setFilter(e.target.value);
   };
- 
+
   return isLoading ? (
     <Shimmer />
   ) : notesData.length === 0 ? (
@@ -129,10 +129,8 @@ export const Notes = () => {
             Load More
           </button>
         </div>
-      ) : (
-        // console.log("No more data")
-        null
-      )}
+      ) : // console.log("No more data")
+      null}
     </div>
   );
 };
