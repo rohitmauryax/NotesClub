@@ -17,12 +17,15 @@ export const Contribute = () => {
     const formData = new FormData();
     formData.set("avatar", fileInput.current.files[0]);
     formData.set("uploadUser", JSON.stringify(userData));
-    
+
     try {
-      const resposnse = await fetch("http://localhost:5000/api/upload", {
-        method: "POST",
-        body: formData,
-      });
+      const resposnse = await fetch(
+        "https://notes-club.vercel.app/api/upload",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
       const result = await resposnse.json();
       if (resposnse.ok) {
         Swal.fire({
