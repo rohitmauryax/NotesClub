@@ -13,9 +13,9 @@ app.use((req, res, next) => {
   next();
 });
 app.use(express.json());
-// app.get("/", (req, res) => {
-//   res.send("Hello World");
-// });
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
 app.use("/api/notes", require("./Routes/NewNotes"));
 app.use("/api/createuser", require("./Routes/CreateUser"));
 app.use("/api", require("./Routes/SearchData"));
