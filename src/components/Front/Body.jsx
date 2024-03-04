@@ -12,7 +12,7 @@ const Body = () => {
         search && title && title.toLowerCase().includes(search.toLowerCase())
       );
     });
-    console.log(result);
+  
     setResult(Filresult);
   };
 

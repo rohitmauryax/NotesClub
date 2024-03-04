@@ -14,7 +14,7 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+   
     const formSpreeEndpoint = "https://formspree.io/f/xoqgayoj";
     try {
       const response = await fetch(formSpreeEndpoint, {
@@ -56,7 +56,7 @@ const Contact = () => {
 
   return (
     <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-md shadow-md">
-      <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
+      <h2 className="text-2xl font-semibold mb-4 text-black">Contact Us</h2>
       <form
         action="https://formspree.io/f/xoqgayoj"
         method="POST"

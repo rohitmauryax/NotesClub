@@ -6,7 +6,7 @@ import { Contribute } from "./components/Pages/Contribute";
 
 function App() {
   return (
-    <>
+    <div className="font-boba">
       <BrowserRouter>
         <Routes>
           <Route index element={<Home />} />
@@ -14,7 +14,7 @@ function App() {
           <Route path="/contribute" element={<Contribute />} />
         </Routes>
       </BrowserRouter>
-    </>
+    </div>
   );
 }
 

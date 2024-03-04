@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useOutletContext, useParams } from "react-router-dom";
 import Header from "../Front/Header";
 import Cards from "../Front/Cards";
 import Shimmer from "../Front/Shimmer";
 import Video from "./Video";
+
 export const Notes = () => {
   const { name } = useParams();
+  const nightMode = useOutletContext();
   const [filter, setFilter] = useState("all");
   const [notesData, setNotesData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(6);
+  const [playlistId, setPlaylistID] = useState("");
   const loadData = async () => {
     let response = await fetch(
       `http://localhost:5000/api/query?search=${name}&filter=${filter}`,
@@ -24,6 +27,19 @@ export const Notes = () => {
     setNotesData(response);
     setIsLoading(false);
   };
+  const loadPlaylistData = async () => {
+    let response = await fetch(
+      `http://localhost:5000/api/playlist/query?tag=${name}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    response = await response.json();
+    setPlaylistID(response[0]?.api);
+  };
   const handleClick = () => {
     setPage(page + 3);
   };
@@ -33,6 +49,7 @@ export const Notes = () => {
     loadData();
     setPage(6);
     setFilter("all");
+    loadPlaylistData();
   }, [name]);
 
   useEffect(() => {
@@ -43,18 +60,21 @@ export const Notes = () => {
   const handleChange = (e) => {
     setFilter(e.target.value);
   };
-  console.log(page, notesData.length);
+ 
   return isLoading ? (
     <Shimmer />
   ) : notesData.length === 0 ? (
     <div>
-      <div className="flex justify-between px-24 mt-6">
+      <div className="flex justify-between px-24 mt-6 text-black">
         <button className="border-2 border-green-500 p-2 bg-green-500 text-white rounded-md w-40 shadow-md shadow-slate-600">
           <Link to="/Contribute"> Contribute</Link>
         </button>
+        <button className="border-2 border-blue-600 p-2 bg-blue-600 text-white rounded-md w-40 shadow-md shadow-slate-600">
+          <Link to={"/playlist/" + playlistId}>Video Tutorials</Link>
+        </button>
         <select
           name="list"
-          className=" shadow-md shadow-slate-400 p-2 w-44 rounded-md"
+          className=" shadow-md shadow-slate-400 p-2 w-44 rounded-md text-black"
           onChange={handleChange}
           value={filter}
         >
@@ -69,16 +89,16 @@ export const Notes = () => {
     </div>
   ) : (
     <div>
-      <div className="flex justify-between px-24 mt-6">
+      <div className="flex justify-between px-24 mt-16">
         <button className="border-2 border-green-500 p-2 bg-green-500 text-white rounded-md w-40 shadow-md shadow-slate-600">
           <Link to="/Contribute"> Contribute</Link>
         </button>
         <button className="border-2 border-blue-600 p-2 bg-blue-600 text-white rounded-md w-40 shadow-md shadow-slate-600">
-          <Link to={"/playlist"}>Video Tutorials</Link>
+          <Link to={"/playlist/" + playlistId}>Video Tutorials</Link>
         </button>
         <select
           name="list"
-          className=" shadow-md shadow-slate-400 p-2 w-44 rounded-md"
+          className=" shadow-md shadow-slate-400 p-2 w-44 rounded-md text-black"
           onChange={handleChange}
           defaultValue={filter}
         >
@@ -90,8 +110,14 @@ export const Notes = () => {
         </select>
       </div>
       <div className=" flex flex-wrap justify-evenly gap-5 content-evenly my-10 ">
-        {notesData.slice(0, page).map((note) => {
-          return <Cards key={note.documents__data__document_id} note={note} />;
+        {notesData.slice(0, page).map((note, index) => {
+          return (
+            <Cards
+              key={note.documents__data__document_id}
+              note={note}
+              nightMode={nightMode[0]}
+            />
+          );
         })}
       </div>
       {page < notesData.length ? (
@@ -104,8 +130,11 @@ export const Notes = () => {
           </button>
         </div>
       ) : (
-        console.log("No more data")
+        // console.log("No more data")
+        null
       )}
     </div>
   );
 };
+
+//

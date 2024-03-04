@@ -2,21 +2,23 @@ import React, { useEffect, useState } from "react";
 import Shimmer from "../Front/Shimmer";
 import VideoCards from "./VideoCards";
 import useFetch from "../../utils/useFetch";
+import { useParams } from "react-router-dom";
 
 const API = "AIzaSyAcTyN4ZFIJv5PVJlWKXJckEs2IpBVO9WU";
 const URL = "https://www.googleapis.com/youtube/v3/playlistItems";
-const FINAL_API = `${URL}?key=${API}&part=snippet%2CcontentDetails&maxResults=100&playlistId=PLrjkTql3jnm8ikiQIeIHrMYCaBfkBkfYR`;
+
 
 const Video = () => {
+  const {id} = useParams()
+  const FINAL_API = `${URL}?key=${API}&part=snippet%2CcontentDetails&maxResults=100&playlistId=${id}`;
   const video = useFetch(FINAL_API);
   const videoList = video.items;
-  console.log(videoList);
   const [item, setItem] = useState(8);
   return videoList === undefined || videoList.length === 0 ? (
     <Shimmer />
   ) : (
     <div>
-      <div className="flex justify-around content-evenly gap-2 flex-wrap my-4 ">
+      <div className="flex justify-around content-evenly gap-4 flex-wrap mt-20 ">
         {videoList.slice(0, item).map((video, index) => {
           return <VideoCards key={index} video={video} serial={index} />;
         })}
