@@ -19,7 +19,7 @@ const Unversities = () => {
             {" "}
             <img
               className="h-[150px] w-[170px] mx-auto hover:cursor-pointer"
-              src="/src/assets/logo1.png"
+              src="../../../logo1.png"
               alt=""
             />
             <h1 className="font-medium mt-3 text-xl">
@@ -31,7 +31,7 @@ const Unversities = () => {
             {" "}
             <img
               className="h-[150px] w-[170px] mx-auto rounded-full hover:cursor-pointer"
-              src="/src/assets/logo2.png"
+              src="../../../logo2.png"
               alt=""
             />
             <h1 className="font-medium mt-3 text-xl">
@@ -44,7 +44,7 @@ const Unversities = () => {
             {" "}
             <img
               className="h-[150px] w-[170px] mx-auto hover:cursor-pointer"
-              src="/src/assets/logo3.png"
+              src="../../../logo3.png"
               alt=""
             />
             <h1 className="font-medium mt-3 text-xl">
@@ -56,7 +56,7 @@ const Unversities = () => {
             {" "}
             <img
               className="h-[150px] w-[170px] mx-auto hover:cursor-pointer"
-              src="/src/assets/logo4.png"
+              src="../../../logo4.png"
               alt=""
             />
             <h1 className="font-medium mt-3 text-xl">University of Delhi</h1>
@@ -66,7 +66,7 @@ const Unversities = () => {
             {" "}
             <img
               className="h-[150px] w-[170px] mx-auto hover:cursor-pointer"
-              src="/src/assets/logo5.png"
+              src="../../../logo5.png"
               alt=""
             />
             <h1 className="font-medium mt-3 text-xl">Sharda University</h1>
@@ -76,7 +76,7 @@ const Unversities = () => {
             {" "}
             <img
               className="h-[150px] w-[170px] mx-auto hover:cursor-pointer"
-              src="/src/assets/logo6.png"
+              src="../../../logo6.png"
               alt=""
             />
             <h1 className="font-medium mt-3 text-xl">

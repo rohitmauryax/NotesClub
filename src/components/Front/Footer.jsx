@@ -12,7 +12,7 @@ const Footer = () => {
               </h1>
               <img
                 className=" rounded-full w-16 h-16 my-4 "
-                src="/src/assets/logo.jpg"
+                src="../../../logo.jpg"
                 alt=""
               />
               <p className="font-light text-sm my-5">
