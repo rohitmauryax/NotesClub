@@ -12,7 +12,7 @@ const Body = () => {
         search && title && title.toLowerCase().includes(search.toLowerCase())
       );
     });
-  
+
     setResult(Filresult);
   };
 
@@ -22,7 +22,7 @@ const Body = () => {
         <div className="pt-16 pb-6">
           <img
             className="rounded-full h-24 w-24 mx-auto mb-4"
-            src="/src/assets/logo.jpg"
+            src="../../../logo.jpg"
             alt="logo"
           />
           <h1 className="font-rob font-bold text-5xl">NotesClub</h1>
